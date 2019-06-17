@@ -1,11 +1,11 @@
 const path = require('path')
+const merge = require('webpack-merge')
 
-module.exports = {
-  mode: 'production',
+const commonConfig = {
   entry: './src/index.js',
   output: {
-    filename: 'vue-drift.js',
-    path: path.resolve('build')
+    path: path.resolve('build'),
+    libraryTarget: "commonjs2"
   },
   module: {
     rules: [
@@ -17,3 +17,18 @@ module.exports = {
     ]
   }
 }
+
+module.exports = [
+  merge (commonConfig, {
+    mode: 'production',
+    output: {
+      filename: 'vue-drift.min.js',
+    },
+  }),
+  merge (commonConfig, {
+    mode: 'development',
+    output: {
+      filename: 'vue-drift.js',
+    },
+  }),
+]

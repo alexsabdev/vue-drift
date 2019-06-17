@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueDrift from '../../src'
+import VueDrift from '../../build/vue-drift'
 
 Vue.use(VueDrift, { appId: process.env.DRIFT_APPID })
 
