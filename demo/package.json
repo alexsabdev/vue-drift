@@ -1,10 +1,11 @@
 {
+  "private": true,
   "name": "vue-drift-example",
   "version": "1.0.0",
   "description": "Vue.js plugin implementation example of the Drift chat widget",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js --progress --open"
+    "serve": "webpack-dev-server --config webpack.config.js --progress --open"
   },
   "author": "Alex Sab <alexsabdev@gmail.com>",
   "license": "MIT",

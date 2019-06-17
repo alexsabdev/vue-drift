@@ -1,10 +1,19 @@
 {
+  "private": false,
   "name": "vue-drift",
   "version": "1.0.0",
   "description": "Vue.js plugin implementation of the Drift chat widget",
   "main": "./build/vue-drift.min.js",
   "scripts": {
     "build": "webpack --config webpack.conf.js --progress"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-merge": "^4.2.1"
   },
   "repository": {
     "type": "git",
@@ -15,17 +24,14 @@
     "drift"
   ],
   "author": "Alex Sab <alexsabdev@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexsabdev/vue-drift/issues"
   },
   "homepage": "https://github.com/alexsabdev/vue-drift#readme",
-  "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "babel-loader": "^8.0.6",
-    "webpack": "^4.34.0",
-    "webpack-cli": "^3.3.4",
-    "webpack-merge": "^4.2.1"
-  }
+  "files": [
+    "build/*",
+    "package.json",
+    "LICENSE"
+  ],
+  "license": "MIT"
 }
