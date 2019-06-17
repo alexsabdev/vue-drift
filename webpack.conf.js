@@ -4,7 +4,7 @@ const merge = require('webpack-merge')
 const commonConfig = {
   entry: './src/index.js',
   output: {
-    path: path.resolve('build'),
+    path: path.resolve('dist'),
     libraryTarget: "commonjs2"
   },
   module: {

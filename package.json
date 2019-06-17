@@ -3,9 +3,9 @@
   "name": "vue-drift",
   "version": "1.0.0",
   "description": "Vue.js plugin implementation of the Drift chat widget",
-  "main": "./build/vue-drift.min.js",
+  "main": "./dist/vue-drift.min.js",
   "scripts": {
-    "build": "webpack --config webpack.conf.js --progress"
+    "dist": "webpack --config webpack.conf.js --progress"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/alexsabdev/vue-drift#readme",
   "files": [
-    "build/*",
+    "dist/*",
     "package.json",
     "LICENSE"
   ],
