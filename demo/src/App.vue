@@ -3,5 +3,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    this.$drift.identify('0', {
+      name: 'asdf',
+      email: 'adsf@asdf.com'
+    })
+  }
+}
 </script>

@@ -8,7 +8,7 @@ function appendScript (content) {
 
 let installed = false;
 
-function loadScript (appId) {
+function loadInitScript (appId) {
   if (typeof document === 'undefined' || typeof window === 'undefined') {
     return
   }
@@ -41,14 +41,27 @@ function loadScript (appId) {
   installed = true
 }
 
+function loadIdentifyScript(userId, attributes = {}) {
+  if (userId === undefined ) {
+    throw new Error('[vue-drift] missing the "userId" parameter')
+  }
+  let scriptText = `!function () {
+    drift.identify('${userId}', ${JSON.stringify(attributes)})
+  }(window.drift);`
+  appendScript(scriptText);
+}
+
 export default function install (Vue, options = {}) {
   const { appId } = options
   if (appId === undefined) {
     throw new Error('[vue-drift] missing the "appId" parameter')
   }
+  Vue.prototype.$drift = Vue.$drift = {
+    identify: loadIdentifyScript
+  }
   Vue.mixin({
     mounted () {
-      loadScript(appId)
+      loadInitScript(appId)
     }
   })
 }
