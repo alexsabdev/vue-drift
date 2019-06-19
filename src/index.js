@@ -1,19 +1,19 @@
-function appendScript (content) {
-  const script = document.createElement('script')
-  script.innerText = content
-  script.async = true
-  script.charset = 'utf-8'
-  document.body.appendChild(script)
+function appendScript(content) {
+  const script = document.createElement('script');
+  script.innerText = content;
+  script.async = true;
+  script.charset = 'utf-8';
+  document.body.appendChild(script);
 }
 
 let installed = false;
 
-function loadInitScript (appId) {
+function loadInitScript(appId) {
   if (typeof document === 'undefined' || typeof window === 'undefined') {
-    return
+    return;
   }
   if (installed) {
-    return
+    return;
   }
   const content = `!function() {
     var t = window.driftt = window.drift = window.driftt || [];
@@ -36,32 +36,32 @@ function loadInitScript (appId) {
     }
   }();
   drift.SNIPPET_VERSION = '0.3.1';
-  drift.load('${appId}');`
-  appendScript(content)
-  installed = true
+  drift.load('${appId}');`;
+  appendScript(content);
+  installed = true;
 }
 
 function loadIdentifyScript(userId, attributes = {}) {
-  if (userId === undefined ) {
-    throw new Error('[vue-drift] missing the "userId" parameter')
+  if (userId === undefined) {
+    throw new Error('[vue-drift] missing the "userId" parameter');
   }
-  let scriptText = `!function () {
+  const scriptText = `!function () {
     drift.identify('${userId}', ${JSON.stringify(attributes)})
-  }(window.drift);`
+  }(drift);`;
   appendScript(scriptText);
 }
 
-export default function install (Vue, options = {}) {
-  const { appId } = options
+export default function install(Vue, options = {}) {
+  const { appId } = options;
   if (appId === undefined) {
-    throw new Error('[vue-drift] missing the "appId" parameter')
+    throw new Error('[vue-drift] missing the "appId" parameter');
   }
-  Vue.prototype.$drift = Vue.$drift = {
-    identify: loadIdentifyScript
-  }
+  Vue.prototype.$drift = {
+    identify: loadIdentifyScript,
+  };
   Vue.mixin({
-    mounted () {
-      loadInitScript(appId)
-    }
-  })
+    mounted() {
+      loadInitScript(appId);
+    },
+  });
 }

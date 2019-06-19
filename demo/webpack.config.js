@@ -1,5 +1,5 @@
-const path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -7,24 +7,24 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.vue$/,
         exclude: /node_modules/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
       },
-    ]
+    ],
   },
   plugins: [
     new Dotenv(),
-    new VueLoaderPlugin()
-  ]
-}
+    new VueLoaderPlugin(),
+  ],
+};
