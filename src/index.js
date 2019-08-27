@@ -52,9 +52,12 @@ function loadIdentifyScript(userId, attributes = {}) {
 }
 
 export default function install(Vue, options = {}) {
-  const { appId } = options;
+  const { appId, development } = options;
   if (appId === undefined) {
     throw new Error('[vue-drift] missing the "appId" parameter');
+  }
+  if (development) {
+    return;
   }
   Vue.prototype.$drift = {
     identify: loadIdentifyScript,

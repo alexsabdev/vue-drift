@@ -21,11 +21,23 @@ import Vue from 'vue'
 import VueDrift from 'vue-drift'
 
 Vue.use(VueDrift, {
-  appId: 'XXXXXXXXX'
+  appId: 'XXXXXXXXX',
 })
 ```
 
 Where `appId` is an application identifier provided by [Drift](https://app.drift.com/settings/widget)
+
+If you to disable it in development mode, then add an optionsl `depelopment` parameter:
+
+```
+import Vue from 'vue'
+import VueDrift from 'vue-drift'
+
+Vue.use(VueDrift, {
+  appId: 'XXXXXXXXX',
+  development: true,
+})
+```
 
 That's it! Enjoy!
 
