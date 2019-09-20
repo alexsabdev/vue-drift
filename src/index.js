@@ -1,15 +1,15 @@
 function appendScript(content) {
-  const script = document.createElement('script');
+  const script = document.createElement("script");
   script.innerText = content;
   script.async = true;
-  script.charset = 'utf-8';
+  script.charset = "utf-8";
   document.body.appendChild(script);
 }
 
 let installed = false;
 
 function loadInitScript(appId) {
-  if (typeof document === 'undefined' || typeof window === 'undefined') {
+  if (typeof document === "undefined" || typeof window === "undefined") {
     return;
   }
   if (installed) {
@@ -20,11 +20,19 @@ function loadInitScript(appId) {
   installed = true;
 }
 
+function loadPageScript(attribute) {
+  let scriptText = `!function(){drift.page()}(drift);`;
+  if (attribute) scriptText = `!function(){drift.page('${attribute}')}(drift);`;
+  appendScript(scriptText);
+}
+
 function loadIdentifyScript(userId, attributes = {}) {
   if (userId === undefined) {
     throw new Error('[vue-drift] missing the "userId" parameter');
   }
-  const scriptText = `!function(){drift.identify('${userId}',${JSON.stringify(attributes)})}(drift);`;
+  const scriptText = `!function(){drift.identify('${userId}',${JSON.stringify(
+    attributes
+  )})}(drift);`;
   appendScript(scriptText);
 }
 
@@ -38,10 +46,11 @@ export default function install(Vue, options = {}) {
   }
   Vue.prototype.$drift = {
     identify: loadIdentifyScript,
+    page: loadPageScript
   };
   Vue.mixin({
     mounted() {
       loadInitScript(appId);
-    },
+    }
   });
 }
