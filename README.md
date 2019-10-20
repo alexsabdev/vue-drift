@@ -21,20 +21,20 @@ import Vue from 'vue'
 import VueDrift from 'vue-drift'
 
 Vue.use(VueDrift, {
-  appId: 'XXXXXXXXX',
+  appId: 'YOUR_APP_ID',
 })
 ```
 
 Where `appId` is an application identifier provided by [Drift](https://app.drift.com/settings/widget)
 
-If you to disable it in development mode, then add an optionsl `depelopment` parameter:
+If you need to disable it in development mode, then add an optional `depelopment` parameter:
 
 ```
 import Vue from 'vue'
 import VueDrift from 'vue-drift'
 
 Vue.use(VueDrift, {
-  appId: 'XXXXXXXXX',
+  appId: 'YOUR_APP_ID',
   development: true,
 })
 ```
@@ -48,6 +48,7 @@ Run in Terminal:
 ```
 cd demo
 npm install
+echo 'DRIFT_APPID="YOUR_APP_ID"' > .env
 npm run serve
 ```
 
@@ -63,15 +64,15 @@ Add to `App.vue` of your Vue application:
 <script>
 export default {
   mounted() {
-    this.$drift.identify('0', {
-      name: 'asdf',
-      email: 'adsf@asdf.com'
+    this.$drift.identify('SOME_USER_ID', {
+      name: 'SOME_USER_NAME',
+      email: 'SOME_USER_EMAIL'
     })
   }
 }
 </script>
 ```
 
-## Licanse
+## License
 
 [MIT](https://opensource.org/licenses/MIT)

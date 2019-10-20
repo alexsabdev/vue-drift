@@ -5,7 +5,7 @@
 <script>
 export default {
   mounted() {
-    this.$drift.identify('0', {
+    this.$drift.identify('1', {
       name: 'asdf',
       email: 'adsf@asdf.com'
     })
