@@ -36,6 +36,35 @@ function identify(userId, attributes = {}) {
   window.drift.identify(userId, attributes);
 }
 
+function reset() {
+  if (typeof window === 'undefined') {
+    throw new Error('[vue-drift] missing the "window" object');
+  }
+
+  if (typeof window.drift === 'undefined') {
+    throw new Error('[vue-drift] missing the "drift" object');
+  }
+
+  window.drift.reset();
+}
+
+function page(pageName = '') {
+  if (typeof window === 'undefined') {
+    throw new Error('[vue-drift] missing the "window" object');
+  }
+
+  if (typeof window.drift === 'undefined') {
+    throw new Error('[vue-drift] missing the "drift" object');
+  }
+
+  if (pageName === '') {
+    window.drift.page();
+    return;
+  }
+
+  window.drift.page(pageName);
+}
+
 export default function install(Vue, options = {}) {
   const { appId, development } = options;
   if (appId === undefined) {
@@ -46,6 +75,8 @@ export default function install(Vue, options = {}) {
   }
   Vue.prototype.$drift = {
     identify,
+    reset,
+    page,
   };
   Vue.mixin({
     mounted() {

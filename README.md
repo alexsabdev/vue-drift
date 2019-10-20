@@ -73,6 +73,22 @@ export default {
 </script>
 ```
 
+### Remove Identification
+
+Simply make this call anywhere in your app:
+
+```
+this.$drift.reset();
+```
+
+### Change Page
+
+Simply make this call on route change in your app:
+
+```
+this.$drift.page(); // or this.$drift.page('NEW_PATH');
+```
+
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
