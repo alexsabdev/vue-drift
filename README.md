@@ -89,6 +89,16 @@ Simply make this call on route change in your app:
 this.$drift.page(); // or this.$drift.page('NEW_PATH');
 ```
 
+### Set User Attributes
+
+Simply make this call anywhere in your app:
+
+```
+this.$drift.setUserAttributes({
+  name: 'SOME_USER_NAME',
+  email: 'SOME_USER_EMAIL'
+});
+
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
