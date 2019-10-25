@@ -74,11 +74,31 @@ function setUserAttributes(attributes) {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  if (typeof window.drift.api === 'undefined') {
-    throw new Error('[vue-drift] missing the "drift.api" object');
+  window.drift.api.setUserAttributes(attributes);
+}
+
+function hide() {
+  if (typeof window === 'undefined') {
+    throw new Error('[vue-drift] missing the "window" object');
   }
 
-  window.drift.api.setUserAttributes(attributes);
+  if (typeof window.drift === 'undefined') {
+    throw new Error('[vue-drift] missing the "drift" object');
+  }
+
+  window.drift.api.widget.hide();
+}
+
+function show() {
+  if (typeof window === 'undefined') {
+    throw new Error('[vue-drift] missing the "window" object');
+  }
+
+  if (typeof window.drift === 'undefined') {
+    throw new Error('[vue-drift] missing the "drift" object');
+  }
+
+  window.drift.api.widget.show();
 }
 
 export default function install(Vue, options = {}) {
@@ -94,6 +114,8 @@ export default function install(Vue, options = {}) {
     reset,
     page,
     setUserAttributes,
+    hide,
+    show,
   };
   Vue.mixin({
     mounted() {

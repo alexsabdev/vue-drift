@@ -73,9 +73,9 @@ export default {
 </script>
 ```
 
-### Remove Identification
+### Remove User Identification
 
-Simply make this call anywhere in your app:
+Make this call anywhere in your app:
 
 ```
 this.$drift.reset();
@@ -83,21 +83,38 @@ this.$drift.reset();
 
 ### Change Page
 
-Simply make this call on route change in your app:
+Make this call on route change in your app:
 
 ```
-this.$drift.page(); // or this.$drift.page('NEW_PATH');
+this.$drift.page(); // or this.$drift.page('NEW_PAGE');
 ```
 
 ### Set User Attributes
 
-Simply make this call anywhere in your app:
+Make this call anywhere in your app:
 
 ```
 this.$drift.setUserAttributes({
   name: 'SOME_USER_NAME',
   email: 'SOME_USER_EMAIL'
 });
+```
+
+### Hide the Widget
+
+Make this call anywhere in your app:
+
+```
+this.$drift.hide();
+```
+
+### Show the Widget
+
+Make this call anywhere in your app:
+
+```
+this.$drift.show();
+```
 
 ## License
 
