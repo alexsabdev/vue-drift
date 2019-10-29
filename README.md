@@ -56,6 +56,17 @@ Wait for a browser window to open
 
 ## Advanced Usage
 
+### Change Configuration
+
+Make this call anywhere in your app:
+
+```
+this.$drift.config({
+  locale: 'SOME_LOCALE',
+  backgroundColor: 'SOME_BACKGROUND_COLOR',
+});
+```
+
 ### Identify Users
 
 Add to `App.vue` of your Vue application:
