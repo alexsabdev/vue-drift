@@ -110,7 +110,7 @@ function openSideBar() {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  window.drift.sidebar.open();
+  window.drift.api.sidebar.open();
 }
 
 function closeSideBar() {
@@ -122,7 +122,7 @@ function closeSideBar() {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  window.drift.sidebar.close();
+  window.drift.api.sidebar.close();
 }
 
 function config(options = {}) {
