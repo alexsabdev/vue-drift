@@ -98,7 +98,7 @@ function show() {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  window.drift.open();
+  window.drift.show();
 }
 
 function openSideBar() {
