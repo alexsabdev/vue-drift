@@ -1,8 +1,8 @@
 function appendScript(content) {
-  const script = document.createElement('script');
+  const script = document.createElement("script");
   script.innerText = content;
   script.async = true;
-  script.charset = 'utf-8';
+  script.charset = "utf-8";
   document.body.appendChild(script);
 }
 
@@ -12,7 +12,7 @@ function loadInitScript(appId) {
   if (installed) {
     return;
   }
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     throw new Error('[vue-drift] missing the "window" object');
   }
   const content = `!function(){var t=window.driftt=window.drift=window.driftt||[];if(!t.init){if(t.invoked)return void(window.console&&console.error&&console.error("Drift snippet included twice."));t.invoked=!0,t.methods=["identify","config","track","reset","debug","show","ping","page","hide","off","on"],t.factory=function(e){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(e),t.push(n),t}},t.methods.forEach(function(e){t[e]=t.factory(e)}),t.load=function(t){var e=3e5*Math.ceil(new Date/3e5),n=document.createElement("script");n.type="text/javascript",n.async=!0,n.crossorigin="anonymous",n.src="https://js.driftt.com/include/"+e+"/"+t+".js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o)}}}(),drift.SNIPPET_VERSION="0.3.1",drift.load("${appId}");`;
@@ -25,11 +25,11 @@ function identify(userId, attributes = {}) {
     throw new Error('[vue-drift] missing the "userId" parameter');
   }
 
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     throw new Error('[vue-drift] missing the "window" object');
   }
 
-  if (typeof window.drift === 'undefined') {
+  if (typeof window.drift === "undefined") {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
@@ -37,27 +37,27 @@ function identify(userId, attributes = {}) {
 }
 
 function reset() {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     throw new Error('[vue-drift] missing the "window" object');
   }
 
-  if (typeof window.drift === 'undefined') {
+  if (typeof window.drift === "undefined") {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
   window.drift.reset();
 }
 
-function page(pageName = '') {
-  if (typeof window === 'undefined') {
+function page(pageName = "") {
+  if (typeof window === "undefined") {
     throw new Error('[vue-drift] missing the "window" object');
   }
 
-  if (typeof window.drift === 'undefined') {
+  if (typeof window.drift === "undefined") {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  if (pageName === '') {
+  if (pageName === "") {
     window.drift.page();
     return;
   }
@@ -66,11 +66,11 @@ function page(pageName = '') {
 }
 
 function setUserAttributes(attributes) {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     throw new Error('[vue-drift] missing the "window" object');
   }
 
-  if (typeof window.drift === 'undefined') {
+  if (typeof window.drift === "undefined") {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
@@ -78,35 +78,59 @@ function setUserAttributes(attributes) {
 }
 
 function hide() {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     throw new Error('[vue-drift] missing the "window" object');
   }
 
-  if (typeof window.drift === 'undefined') {
+  if (typeof window.drift === "undefined") {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  window.drift.api.widget.hide();
+  window.drift.hide();
 }
 
 function show() {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     throw new Error('[vue-drift] missing the "window" object');
   }
 
-  if (typeof window.drift === 'undefined') {
+  if (typeof window.drift === "undefined") {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  window.drift.api.widget.show();
+  window.drift.open();
 }
 
-function config(options = {}) {
-  if (typeof window === 'undefined') {
+function openSideBar() {
+  if (typeof window === "undefined") {
     throw new Error('[vue-drift] missing the "window" object');
   }
 
-  if (typeof window.drift === 'undefined') {
+  if (typeof window.drift === "undefined") {
+    throw new Error('[vue-drift] missing the "drift" object');
+  }
+
+  window.drift.sidebar.show();
+}
+
+function closeSideBar() {
+  if (typeof window === "undefined") {
+    throw new Error('[vue-drift] missing the "window" object');
+  }
+
+  if (typeof window.drift === "undefined") {
+    throw new Error('[vue-drift] missing the "drift" object');
+  }
+
+  window.drift.sidebar.close();
+}
+
+function config(options = {}) {
+  if (typeof window === "undefined") {
+    throw new Error('[vue-drift] missing the "window" object');
+  }
+
+  if (typeof window.drift === "undefined") {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
@@ -128,11 +152,13 @@ export default function install(Vue, options = {}) {
     setUserAttributes,
     hide,
     show,
-    config,
+    openSideBar,
+    closeSideBar,
+    config
   };
   Vue.mixin({
     mounted() {
       loadInitScript(appId);
-    },
+    }
   });
 }

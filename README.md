@@ -127,6 +127,22 @@ Make this call anywhere in your app:
 this.$drift.show();
 ```
 
+### Open Sidebar
+
+Make this call anywhere in your app:
+
+```
+this.$drift.openSideBar();
+```
+
+### Close Sidebar
+
+Make this call anywhere in your app:
+
+```
+this.$drift.closeSideBar();
+```
+
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
