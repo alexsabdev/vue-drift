@@ -110,7 +110,7 @@ function openSideBar() {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  window.drift.sidebar.show();
+  window.drift.sidebar.open();
 }
 
 function closeSideBar() {
