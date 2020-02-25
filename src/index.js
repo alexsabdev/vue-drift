@@ -86,7 +86,7 @@ function hide() {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  window.drift.api.widget.hide();
+  window.drift.hide();
 }
 
 function show() {
@@ -98,7 +98,7 @@ function show() {
     throw new Error('[vue-drift] missing the "drift" object');
   }
 
-  window.drift.api.widget.show();
+  window.drift.show();
 }
 
 function config(options = {}) {
