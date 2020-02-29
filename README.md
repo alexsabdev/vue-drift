@@ -25,7 +25,7 @@ Vue.use(VueDrift, {
 })
 ```
 
-Where `appId` is an application identifier provided by [Drift](https://app.drift.com/settings/widget)
+Where `appId` is your application identifier provided by [Drift](https://app.drift.com/settings/widget)
 
 If you need to disable it in development mode, then add an optional `depelopment` parameter:
 
@@ -97,18 +97,7 @@ this.$drift.reset();
 Make this call on route change in your app:
 
 ```
-this.$drift.page(); // or this.$drift.page('NEW_PAGE');
-```
-
-### Set User Attributes
-
-Make this call anywhere in your app:
-
-```
-this.$drift.setUserAttributes({
-  name: 'SOME_USER_NAME',
-  email: 'SOME_USER_EMAIL'
-});
+this.$drift.page();
 ```
 
 ### Hide the Widget
@@ -126,6 +115,16 @@ Make this call anywhere in your app:
 ```
 this.$drift.show();
 ```
+
+### Other browser API
+
+Make this call anywhere in your app:
+
+```
+this.$drift.METHOD
+```
+
+where `METHOD` is any browser API method (see [here](https://devdocs.drift.com/docs/using-drift-apis))
 
 ## License
 
