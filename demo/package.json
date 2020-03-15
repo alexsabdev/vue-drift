@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "vue-drift-example",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Vue.js plugin implementation example of the Drift chat widget",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-loader": "^3.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-vue": "^5.2.3",
+    "eslint-plugin-vue": "^6.2.2",
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.3",
