@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "vue-drift",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Vue.js plugin implementation of the Drift chat widget",
   "main": "./dist/vue-drift.min.js",
   "scripts": {

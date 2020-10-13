@@ -5,7 +5,7 @@ const commonConfig = {
   entry: './src/index.js',
   output: {
     path: path.resolve('dist'),
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
