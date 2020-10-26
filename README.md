@@ -4,15 +4,16 @@
 
 # vue-drift
 
-Vue.js plugin implementation of the Drift chat widget
+Vue.js plugin implementation of the Drift chat widget with 100% [browser API](https://devdocs.drift.com/docs/using-drift-apis) compatability
 
-## Installation
+## Usage
 
+### Node-based environment
+
+Install using npm:
 ```
 npm install vue-drift
 ```
-
-## Usage
 
 Add to `index.js` of your Vue application:
 
@@ -27,17 +28,35 @@ Vue.use(VueDrift, {
 
 Where `appId` is your application identifier provided by [Drift](https://app.drift.com/settings/widget)
 
-If you need to disable it in development mode, then add an optional `depelopment` parameter:
+That's it! Enjoy!
+
+### Browser environment
+
+It depends on your tooling, but the simplest way is to add this to your HTML page:
 
 ```
-import Vue from 'vue'
-import VueDrift from 'vue-drift'
+...
+<div id="app"></div>
+...
+<script  src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
 
-Vue.use(VueDrift, {
-  appId: 'YOUR_APP_ID',
-  development: true,
-})
+<script src="https://unpkg.com/vue-drift@latest/dist/vue-drift.window.min.js"></script>
+
+<script>
+  Vue.component('vue-drift', VueDrift);
+
+  Vue.use(VueDrift, {
+    appId: 'YOUR_APP_ID',
+  })
+
+  new Vue({
+    el: '#app',
+  })
+</script>
+...
 ```
+
+Where `appId` is your application identifier provided by [Drift](https://app.drift.com/settings/widget)
 
 That's it! Enjoy!
 
@@ -55,6 +74,16 @@ npm run serve
 Wait for a browser window to open
 
 ## Advanced Usage
+
+### Disable in development mode
+
+Add an optional parameter `development` when registering the component:
+```
+Vue.use(VueDrift, {
+  appId: 'YOUR_APP_ID',
+  development: true,
+})
+```
 
 ### Change Configuration
 

@@ -12,7 +12,7 @@ const load = (appId) => {
   installed = true;
 }
 
-export default function install(Vue, options = {}) {
+const install = (Vue, options = {}) => {
   const { appId, development } = options;
 
   if (development) return;
@@ -40,3 +40,7 @@ export default function install(Vue, options = {}) {
     },
   });
 }
+
+export { install };
+
+export default install;

@@ -31,4 +31,20 @@ module.exports = [
       filename: 'vue-drift.js',
     },
   }),
+  merge(commonConfig, {
+    mode: 'production',
+    output: {
+      filename: 'vue-drift.window.min.js',
+      libraryTarget: 'window',
+      library: 'VueDrift'
+    },
+  }),
+  merge(commonConfig, {
+    mode: 'development',
+    output: {
+      filename: 'vue-drift.window.js',
+      libraryTarget: 'window',
+      library: 'VueDrift'
+    },
+  }),
 ];
