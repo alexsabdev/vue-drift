@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://mk0drift0ho9g7wbfexi.kinstacdn.com/wp-content/themes/drift-kumbi/assets/images/logo.svg" width="100px">
+  <img src="https://www.drift.com/wp-content/themes/drift-rebrand/dist/images/drift-logo-reg_c55e841e.svg" width="100px">
 </p>
 
 # vue-drift
@@ -11,6 +11,7 @@ Vue.js plugin implementation of the Drift chat widget with 100% [browser API](ht
 ### Node-based environment
 
 Install using npm:
+
 ```
 npm install vue-drift
 ```
@@ -78,6 +79,7 @@ Wait for a browser window to open
 ### Disable in development mode
 
 Add an optional parameter `development` when registering the component:
+
 ```
 Vue.use(VueDrift, {
   appId: 'YOUR_APP_ID',
